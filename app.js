@@ -24,7 +24,7 @@ app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({extended: false}));
 app.use(method_override("_method"));
 
-mongoose.connect("mongodb://localhost/primera");
+mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost/primera");
 
 
 var uploader = multer({dest: "./uploads"});
