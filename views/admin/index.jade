@@ -1,0 +1,26 @@
+extends ../layout.jade
+block contenido
+	h1 Panel de administración
+	table(class="table")
+		caption Productos actuales
+		thead
+			tr
+				th #
+				th Nombre
+				th Descripción
+				th Precio
+				th Imágenes
+				th Acciones
+		tbody
+			each producto in productos
+				tr
+					td= producto.id 
+					td= producto.titulo
+					td= producto.descripcion
+					td= producto.precio
+					td
+						a(href="#{producto.imagenUrl}" class="btn") Ver imagen
+					td
+						a(href="/menu/editar/#{producto.id}" class="btn") Editar
+						=" - "
+						a(href="/menu/delete/#{producto.id}" class="btn") Eliminar

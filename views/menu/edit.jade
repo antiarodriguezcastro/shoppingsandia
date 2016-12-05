@@ -1,0 +1,24 @@
+extends ../layout.jade
+block contenido
+	div(class="col-md-5 center-block quitar-float text-left espacio-arriba")
+		input(type="hidden" name="method" value="put")
+		h1 Agregar producto
+		form(method="post" action="/menu/#{producto.id}?_method=put" style="margin-top:1.5em;" enctype="multipart/form-data")
+			div(class="form-group")
+				label Nombre
+				input(type="text" value="#{producto.titulo}" name="titulo" placeholder="Nombre del artículo" class="form-control")
+			div(class="form-group")
+				label Descripción
+				textarea(name="descripcion" placeholder="Descripción del artículo" class="form-control")
+					=producto.descripcion
+			div(class="form-group")
+				label Precio
+				input(type="number" value="#{producto.precio}" name="precio" placeholder="Precio del artículo" class="form-control")
+			div(class="form-group")
+				label Imagen del producto
+				input(type="file" name="avatar")
+			div(class="form-group")
+				label Contraseña
+				input(type="password" name="password" placeholder="Contraseña" class="form-control")
+			div(class="form-group text-right")
+				input(type="submit" class="btn btn-info" value="Guardar")

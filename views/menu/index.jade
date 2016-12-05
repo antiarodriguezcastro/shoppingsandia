@@ -1,0 +1,10 @@
+extends ../layout.jade
+block contenido
+	h2(class="pacifico big blue") Menú
+	p últimos productos adquiridos
+	each producto in productos
+		div(class="col-md-4 col-sm-6 col-xs-12 inline-block")
+			h3(class="pacifico")=producto.titulo
+			img(src="#{ producto.imagen.url }" class="col-xs-7 col-md-4 no-float")
+			p(style="margin-top:1em;") 
+				small(class="lato small") #{producto.precio} Euros
